@@ -1,50 +1,78 @@
-import javax.swing.JFrame;
+import javax.swing.JDialog;
+import javax.swing.JTextField;
 import javax.swing.JButton;
-import javax.swing.DefaultListModel;
+import javax.swing.JLabel;
+import java.awt.BorderLayout;
+import java.awt.Frame;
+import javax.swing.JFrame;
+import java.awt.GridLayout;
+import java.util.List;
 import javax.swing.JList;
 import javax.swing.JPanel;
-import java.util.List;
-import java.awt.GridLayout;
-import java.awt.BorderLayout;
 
 public class JanelaCadTurmas extends JFrame{
-
-	private JList<Turma> jlTurma;
-	private DefaultListModel<Turma> lmTurma;
-	private JPanel painel;
-	private JButton btEditar, btNovo;
 	
+	private JTextField txtDataInicio, txtDataTermino, txtProfessor, txtAlunosTurma, txtAlunos;
+	private JLabel lblDataInicio,lblDataTermino,lblProfessor;
+	private JButton btOK, btCancelar, btAddProfessor;
+	private boolean ok;
+
+	public Turma getTurma(){
+		if(ok){
+			Turma t = new Turma(txtDataInicio.getText(), txtDataTermino.getText());
+			return t;
+		}
+		else
+			return null;
+	}
+
 	public JanelaCadTurmas(){
 		super("Cadastro Turma");
+		setLayout(new GridLayout(5,2));
+		//setLayout(new GridLayout(5,2));
+	
 		
-		lmTurma = new DefaultListModel<>();
-		List<Turma> lst = Dados.getInstance().getListTurma();
-		for(int i=0;i<lst.size();i++){
-			lmTurma.add(i,lst.get(i));
-		}
+		lblDataInicio = new JLabel("DataInicio: ");
+		txtDataInicio = new JTextField();
 		
-		jlTurma = new JList<>(lmTurma);
-		add(jlTurma);
+		lblDataTermino = new JLabel("Data Termino: ");
+		txtDataTermino = new JTextField();
 		
-		painel = new JPanel();
-		painel.setLayout(new GridLayout(1,2));
+		lblProfessor = new JLabel("Professor: ");
+		btAddProfessor = new JButton("selecionar");
+		//txtProfessor = new JTextField();
 		
-		btEditar = new JButton("Editar");
-		btNovo = new JButton("Novo");
-		painel.add(btEditar); painel.add(btNovo);
+		btOK = new JButton("OK");
 		
-		add(painel, BorderLayout.SOUTH);
+		btCancelar = new JButton("Cancelar");
 		
-		btNovo.addActionListener((e)->{
-			DialogoTurma d = new DialogoTurma(this);
-			Turma p = d.getTurma();
-			lmTurma.add(lmTurma.getSize(),p);
-			Dados.getInstance().getListTurma().add(p);
+		btAddProfessor.addActionListener((e)->{
+			new JanelaListarProfessor(this);
+			
+			System.out.printf("dsadasdasdasdsadasd");
 		});
 		
-		btEditar.addActionListener((e)->{
-			System.out.printf("Aluno selecionado: %s\n", jlTurma.getSelectedValue());
+		btCancelar.addActionListener((e)->{
+			dispose();
 		});
+		
+		btOK.addActionListener((e)->{
+			ok = true;
+			dispose();
+		});
+		
+		add(lblDataInicio);
+		add(txtDataInicio);
+		
+		add(lblDataTermino);
+		add(txtDataTermino);
+		
+		add(lblProfessor);
+		add(btAddProfessor);
+		//add(txtProfessor);
+		
+		add(btCancelar);
+		add(btOK);
 		
 		setSize(300,300);
 		setVisible(true);
