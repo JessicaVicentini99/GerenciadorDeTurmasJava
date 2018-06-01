@@ -9,15 +9,29 @@ import java.awt.GridLayout;
 import java.awt.BorderLayout;
 import java.awt.Frame;
 
-public class JanelaListarProfessor extends JFrame{
+public class JanelaListarProfessor extends JDialog{
 
 	private JList<Professor> jlProfessor;
 	private DefaultListModel<Professor> lmProfessor;
+	private JButton btSelecionar, btCancelar;
+	private JPanel painel;
+	private boolean selecionar;
+	
+	public Professor getProfessor(){
+		if(selecionar){
+			return jlProfessor.getSelectedValue();
+		}
+		else
+			return null;
+	}
 
 	
-	public JanelaListarProfessor(){
-		super("teste");
-		setLayout(new GridLayout(5,2));
+	public JanelaListarProfessor(Frame frame){
+		super(frame,true);
+		
+		//setLayout(new GridLayout(5,2));
+		//super("teste");
+		
 		//super("Selecionar Professor");
 		
 		lmProfessor = new DefaultListModel<>();
@@ -29,6 +43,22 @@ public class JanelaListarProfessor extends JFrame{
 		jlProfessor = new JList<>(lmProfessor);
 		add(jlProfessor);
 		
+		painel = new JPanel();
+		painel.setLayout(new GridLayout(1,2));
+		
+		btSelecionar = new JButton("Selcionar");
+		btCancelar = new JButton("Cancelar");
+		painel.add(btSelecionar); painel.add(btCancelar);
+		
+		add(painel, BorderLayout.SOUTH);
+		
+
+		btSelecionar.addActionListener((e)->{
+			selecionar = true;
+			System.out.printf("Professor selecionado: %s\n", jlProfessor.getSelectedValue());
+			
+			dispose();
+		});
 		
 		setSize(300,300);
 		setVisible(true);
