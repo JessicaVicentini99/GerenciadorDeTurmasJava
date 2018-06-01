@@ -1,6 +1,6 @@
 public class Aluno extends Pessoa{
 	
-	private  String ra,dataMatricula;
+	private  String ra, dataMatricula;
 	
 	
 	public Aluno(String nome,String cpf,String rg, String r, String d){
