@@ -29,7 +29,7 @@ public class JanelaEditAluno extends JDialog{
 		
 		lblDataMAtricula = new JLabel("Data Matricula: ");
 		txtDataMatricula = new JTextField();
-		txtDataMatricula.setText(a.getNome());
+		txtDataMatricula.setText(a.getDataMatricula());
 		
 		lblCPF = new JLabel("CPF: ");
 		txtCPF = new JTextField();

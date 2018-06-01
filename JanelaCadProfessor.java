@@ -43,7 +43,8 @@ public class JanelaCadProfessor extends JFrame{
 		});
 		
 		btEditar.addActionListener((e)->{
-			System.out.printf("Aluno selecionado: %s\n", jlProfessor.getSelectedValue());
+			JanelaEditProfessor ep = new JanelaEditProfessor(this, jlProfessor.getSelectedValue());
+			System.out.printf("Professor selecionado: %s\n", jlProfessor.getSelectedValue());
 		});
 		
 		setSize(300,300);
