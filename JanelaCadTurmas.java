@@ -19,7 +19,7 @@ public class JanelaCadTurmas extends JFrame{
 
 	public Turma getTurma(){
 		if(ok){
-			Turma t = new Turma(txtDataInicio.getText(), txtDataTermino.getText());
+			Turma t = new Turma(txtDataInicio.getText(), txtDataTermino.getText(),);
 			return t;
 		}
 		else
