@@ -13,12 +13,14 @@ public class DialogoTurma extends JDialog{
 	
 	private JTextField txtDataInicio, txtDataTermino, txtProfessor, txtAlunosTurma, txtAlunos;
 	private JLabel lblDataInicio,lblDataTermino,lblProfessor;
-	private JButton btOK, btCancelar, btAddProfessor;
+	private JButton btOK, btCancelar, btAddProfessor, btSelecionarAlunos;
+	private Professor prof;
 	private boolean ok;
 
 	public Turma getTurma(){
 		if(ok){
-			Turma t = new Turma(txtDataInicio.getText(), txtDataTermino.getText());
+			System.out.printf("Nome professor: %s", prof.getNome());
+			Turma t = new Turma(txtDataInicio.getText(), txtDataTermino.getText(), prof);
 			return t;
 		}
 		else
@@ -36,18 +38,21 @@ public class DialogoTurma extends JDialog{
 		lblDataTermino = new JLabel("Data Termino: ");
 		txtDataTermino = new JTextField();
 		
-		lblProfessor = new JLabel("Professor: ");
-		btAddProfessor = new JButton("selecionar");
-		//txtProfessor = new JTextField();
+		//lblProfessor = new JLabel("Professor: ");
+		btAddProfessor = new JButton("Selecionar Professor:");
+		txtProfessor = new JTextField();
 		
 		btOK = new JButton("OK");
 		
 		btCancelar = new JButton("Cancelar");
 		
+		bt 
+		
 		btAddProfessor.addActionListener((e)->{
-			new JanelaListarProfessor(this);
+			JanelaListarProfessor d = new JanelaListarProfessor(frame);
+			prof = d.getProfessor();
+			txtProfessor.setText(prof.getNome());
 			
-			System.out.printf("dsadasdasdasdsadasd");
 		});
 		
 		btCancelar.addActionListener((e)->{
@@ -65,14 +70,15 @@ public class DialogoTurma extends JDialog{
 		add(lblDataTermino);
 		add(txtDataTermino);
 		
-		add(lblProfessor);
+		//add(lblProfessor);
 		add(btAddProfessor);
-		//add(txtProfessor);
+		add(txtProfessor);
+		txtProfessor.setEditable(false);
 		
 		add(btCancelar);
 		add(btOK);
 		
-		setSize(300,300);
+		setSize(350,300);
 		setVisible(true);
 	}
 

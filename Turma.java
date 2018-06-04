@@ -70,18 +70,18 @@ public class Turma{
 			}
 		}
 	
-		public Turma(String di, String dt)
+		public Turma(String di, String dt, Professor pr)
 		{
 			alunos = new Aluno[100];
 			a=0;
 			dataInicio = di;
 			dataTermino = dt;
-		//	prof = pr;
+			prof = pr;
 		}
 		
 		public String toString()
 		{
-			return " Data Inicio: "+dataInicio+"\n"+" Data Fim: "+dataTermino+"\n";
+			return " Data Inicio: "+dataInicio+"\n"+" Data Fim: "+dataTermino+"\n"+" Professor: "+prof+"\n";
 		}
 		
 

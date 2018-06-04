@@ -27,7 +27,7 @@ public class Janela extends JFrame{
 		});
 		
 		btCadTurma.addActionListener((e)->{
-			new JanelaCadTurmas();
+			new JanelaListarTurmas();
 		});
 		
 		setSize(200,200);
