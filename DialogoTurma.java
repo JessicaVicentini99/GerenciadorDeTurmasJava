@@ -13,7 +13,7 @@ public class DialogoTurma extends JDialog{
 	
 	private JTextField txtDataInicio, txtDataTermino, txtProfessor, txtAlunosTurma, txtAlunos;
 	private JLabel lblDataInicio,lblDataTermino,lblProfessor;
-	private JButton btOK, btCancelar, btAddProfessor;
+	private JButton btOK, btCancelar, btAddProfessor, btSelecionarAlunos;
 	private Professor prof;
 	private boolean ok;
 
@@ -45,6 +45,8 @@ public class DialogoTurma extends JDialog{
 		btOK = new JButton("OK");
 		
 		btCancelar = new JButton("Cancelar");
+		
+		bt 
 		
 		btAddProfessor.addActionListener((e)->{
 			JanelaListarProfessor d = new JanelaListarProfessor(frame);
