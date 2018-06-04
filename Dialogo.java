@@ -1,4 +1,4 @@
-import javax.swing.JDialog;
+qimport javax.swing.JDialog;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JLabel;

@@ -46,7 +46,7 @@ public class DialogoTurma extends JDialog{
 		
 		btCancelar = new JButton("Cancelar");
 		
-		bt 
+		
 		
 		btAddProfessor.addActionListener((e)->{
 			JanelaListarProfessor d = new JanelaListarProfessor(frame);
