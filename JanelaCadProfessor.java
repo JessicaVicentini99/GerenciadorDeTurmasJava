@@ -12,7 +12,7 @@ public class JanelaCadProfessor extends JFrame{
 	private JList<Professor> jlProfessor;
 	private DefaultListModel<Professor> lmProfessor;
 	private JPanel painel;
-	private JButton btEditar, btNovo;
+	private JButton btEditar, btNovo, btExcluir;
 	
 	public JanelaCadProfessor(){
 		super("Cadastro Professor");
@@ -29,6 +29,7 @@ public class JanelaCadProfessor extends JFrame{
 		painel = new JPanel();
 		painel.setLayout(new GridLayout(1,2));
 		
+		btExcluir = new JButton("Excluir");
 		btEditar = new JButton("Editar");
 		btNovo = new JButton("Novo");
 		painel.add(btEditar); painel.add(btNovo);
@@ -45,6 +46,10 @@ public class JanelaCadProfessor extends JFrame{
 		btEditar.addActionListener((e)->{
 			JanelaEditProfessor ep = new JanelaEditProfessor(this, jlProfessor.getSelectedValue());
 			System.out.printf("Professor selecionado: %s\n", jlProfessor.getSelectedValue());
+		});
+		
+		btExcluir.addActionListener((e)->{
+			lmProfessor.removeElement(jlProfessor.getSelectedValue());
 		});
 		
 		setSize(300,300);
