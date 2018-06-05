@@ -27,12 +27,12 @@ public class JanelaCadProfessor extends JFrame{
 		add(jlProfessor);
 		
 		painel = new JPanel();
-		painel.setLayout(new GridLayout(1,2));
+		painel.setLayout(new GridLayout(1,3));
 		
 		btExcluir = new JButton("Excluir");
 		btEditar = new JButton("Editar");
 		btNovo = new JButton("Novo");
-		painel.add(btEditar); painel.add(btNovo);
+		painel.add(btExcluir); painel.add(btEditar); painel.add(btNovo);
 		
 		add(painel, BorderLayout.SOUTH);
 		

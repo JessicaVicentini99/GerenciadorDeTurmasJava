@@ -27,7 +27,7 @@ public class JanelaCadAlunos extends JFrame{
 		add(jlAluno);
 		
 		painel = new JPanel();
-		painel.setLayout(new GridLayout(1,2));
+		painel.setLayout(new GridLayout(1,3));
 		
 		btExcluir = new JButton("Excluir");
 		btEditar = new JButton("Editar");
