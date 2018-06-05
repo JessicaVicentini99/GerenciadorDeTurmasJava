@@ -29,7 +29,7 @@ public class DialogoTurma extends JDialog{
 
 	public DialogoTurma(Frame frame){
 		super(frame,true);
-		setLayout(new GridLayout(5,2));
+		setLayout(new GridLayout(4,2));
 	
 		
 		lblDataInicio = new JLabel("DataInicio: ");
@@ -46,7 +46,7 @@ public class DialogoTurma extends JDialog{
 		
 		btCancelar = new JButton("Cancelar");
 		
-		btSelecionarAlunos = new JButton("Selecionar Alunos");
+		//btSelecionarAlunos = new JButton("Selecionar Alunos");
 		
 		
 		
@@ -80,7 +80,7 @@ public class DialogoTurma extends JDialog{
 		add(btCancelar);
 		add(btOK);
 		
-		add(btSelecionarAlunos);
+		//add(btSelecionarAlunos);
 		
 		setSize(350,300);
 		setVisible(true);

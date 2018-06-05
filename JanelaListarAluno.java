@@ -12,8 +12,10 @@ import java.awt.Frame;
 public class JanelaListarAluno extends JDialog{
 
 	private JList<Aluno> jlAluno;
+	private JList<Aluno> jlAlunoTurma;
 	private DefaultListModel<Aluno> lmAluno;
-	private JButton btSelecionar, btCancelar;
+	private DefaultListModel<Aluno> lmAlunoTurma;
+	private JButton btAdicionar, btRemover;
 	private JPanel painel;
 	private boolean selecionar;
 	
@@ -26,38 +28,64 @@ public class JanelaListarAluno extends JDialog{
 	}
 
 	
-	public JanelaListarAluno(Frame frame){
+	public JanelaListarAluno(Frame frame, Turma t){
 		super(frame,true);
 		
-		//setLayout(new GridLayout(5,2));
+	    setLayout(new GridLayout(1,3));
 		//super("teste");
 		
 		//super("Selecionar Aluno");
 		
+		
+	   /*+----------------------------------------------------------+
+	     |    Lista de todos os alunos cadastrados no sistema       |
+	     +----------------------------------------------------------+*/
 		lmAluno = new DefaultListModel<>();
-		List<Aluno> lst = Dados.getInstance().getListAluno();
+		List<Aluno> lst = Dados.getInstance().getListAlunos();
 		for(int i=0;i<lst.size();i++){
 			lmAluno.add(i,lst.get(i));
 		}
 		
 		jlAluno = new JList<>(lmAluno);
 		add(jlAluno);
-		
+	 /*+-------------------------------------------------------------+
+	   |    Painel                                                   |
+	   +-------------------------------------------------------------+*/
 		painel = new JPanel();
-		painel.setLayout(new GridLayout(1,2));
+		painel.setLayout(new GridLayout(2,1));
 		
-		//btSelecionar = new JButton("Selcionar");
-		//btCancelar = new JButton("Cancelar");
-		painel.add(btSelecionar); painel.add(btCancelar);
+		btAdicionar = new JButton(">>");
+		btRemover = new JButton("<<");
+		painel.add(btAdicionar); painel.add(btRemover);
 		
-		add(painel, BorderLayout.SOUTH);
+		add(painel);
+	   /*+----------------------------------------------------------+
+	     |    Lista dos alunos cadastrados na sala                  |
+	     +----------------------------------------------------------+*/
+		lmAlunoTurma = new DefaultListModel<>();
+		for(int j=0; j<(t.getAlunos()).size(); j++){
+			lmAlunoTurma.add(j, (t.getAlunos()).get(j));
+		}
+		jlAlunoTurma = new JList<>(lmAlunoTurma);
+		add(jlAlunoTurma);
+	      
 		
 
-		btSelecionar.addActionListener((e)->{
-			selecionar = true;
+		btAdicionar.addActionListener((e)->{
+			//selecionar = true;
 			System.out.printf("Aluno selecionado: %s\n", jlAluno.getSelectedValue());
+			Aluno a = jlAluno.getSelectedValue();
+			t.addAluno(a);
 			
-			dispose();
+			lmAlunoTurma.addElement(a);
+			lmAluno.removeElement(a);
+			
+			
+			
+
+			
+			System.out.printf("Aluno Adicionado: %s\n", jlAluno.getSelectedValue());
+			//dispose();
 		});
 		
 		setSize(300,300);

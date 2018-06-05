@@ -49,6 +49,7 @@ public class JanelaCadAlunos extends JFrame{
 		});
 		
 		btExcluir.addActionListener((e)->{
+			Dados.getInstance().removeAluno(jlAluno.getSelectedValue());
 			lmAluno.removeElement(jlAluno.getSelectedValue());
 		});
 		
