@@ -1,10 +1,11 @@
+import java.util.List;
+import java.util.LinkedList;
 
 public class Turma{
 	
-		private Aluno[] alunos;
+		private List<Turma> lstTurma;
 		private Professor prof; 
 		private String dataInicio, dataTermino;
-		private	int a;
 		
 		public void setDataInicio(String d)
 		{
@@ -34,46 +35,17 @@ public class Turma{
 			return prof;
 		}
 		
-		public boolean addAluno(Aluno al)
-		{
-			if(a<alunos.length){
-				alunos [a++] = al;
-				return true;
-			}
-			return false;
-		}
 		
-		public boolean removeAluno(int idx)
-		{
-			if(idx<a){
-				alunos[idx] = alunos [--a];
-				return true;
-			}
-			return false;
-		}
 		
-		public Aluno getAluno(int idx)
-		{
-			if(idx<a){
-				return alunos[idx];
-			}
-			return null;
-		}
 		
-		public void listarAlunos(){
-			for(int i=0;i<a;i++){
-				System.out.printf("Aluno: %d\n", i);
-				System.out.printf("Nome: %s\n", alunos[i].getNome());
-				System.out.printf("Ra: %s\n", alunos[i].getRa());
-				System.out.printf("Cpf: %s\n", alunos[i].getCpf());
-				System.out.printf("Rg: %s\n", alunos[i].getRg());
-			}
-		}
+		
+		
+		
+		
 	
 		public Turma(String di, String dt, Professor pr)
 		{
-			alunos = new Aluno[100];
-			a=0;
+			lstTurma = new LinkedList<>();
 			dataInicio = di;
 			dataTermino = dt;
 			prof = pr;
