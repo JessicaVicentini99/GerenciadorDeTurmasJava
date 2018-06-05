@@ -13,7 +13,7 @@ public class JanelaListarTurmas extends JFrame{
 	private JList<Turma> jlTurma;
 	private DefaultListModel<Turma> lmTurma;
 	private JPanel painel;
-	private JButton btEditar, btNovo;
+	private JButton btEditar, btNovo,btAlunos;
 	
 	public JanelaListarTurmas(){
 		//super(frame, true);
@@ -29,11 +29,12 @@ public class JanelaListarTurmas extends JFrame{
 		add(jlTurma);
 		
 		painel = new JPanel();
-		painel.setLayout(new GridLayout(1,2));
+		painel.setLayout(new GridLayout(1,3));
 		
 		btEditar = new JButton("Editar");
 		btNovo = new JButton("Novo");
-		painel.add(btEditar); painel.add(btNovo);
+		btAlunos= new JButton("Alunos");
+		painel.add(btEditar); painel.add(btNovo);painel.add(btAlunos);
 		
 		add(painel, BorderLayout.SOUTH);
 		
