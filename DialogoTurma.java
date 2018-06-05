@@ -46,6 +46,8 @@ public class DialogoTurma extends JDialog{
 		
 		btCancelar = new JButton("Cancelar");
 		
+		btSelecionarAlunos = new JButton("Selecionar Alunos");
+		
 		
 		
 		btAddProfessor.addActionListener((e)->{
@@ -77,6 +79,8 @@ public class DialogoTurma extends JDialog{
 		
 		add(btCancelar);
 		add(btOK);
+		
+		add(btSelecionarAlunos);
 		
 		setSize(350,300);
 		setVisible(true);
