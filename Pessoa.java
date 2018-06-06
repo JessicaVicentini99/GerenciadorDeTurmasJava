@@ -3,7 +3,7 @@ public class Pessoa{
 	private String nome, cpf, rg;
 	
 	public Pessoa(String n,String c,String r){
-		nome = n;
+		setNome(n);
 		cpf = c;
 		rg = r;
 	}

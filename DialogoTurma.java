@@ -51,6 +51,14 @@ public class DialogoTurma extends JDialog{
 		
 		
 		btAddProfessor.addActionListener((e)->{
+			if(txtDataInicio.getText().matches(""))
+			{
+				throw new CampoVazioException("Data de Inicio");
+			}
+			if(txtDataTermino.getText().matches(""))
+			{
+				throw new CampoVazioException("Data de Termino");
+			}
 			JanelaListarProfessor d = new JanelaListarProfessor(frame);
 			prof = d.getProfessor();
 			txtProfessor.setText(prof.getNome());

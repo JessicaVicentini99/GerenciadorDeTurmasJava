@@ -16,8 +16,11 @@ public class Dialogo extends JDialog{
 
 	public Aluno getAluno(){
 		if(ok){
+			
+	
 			Aluno a = new Aluno(txtNome.getText(), txtCPF.getText(), txtRG.getText(), txtRA.getText(), txtDataMatricula.getText());
 			return a;
+			
 		}
 		else
 			return null;
@@ -51,8 +54,50 @@ public class Dialogo extends JDialog{
 		});
 		
 		btOK.addActionListener((e)->{
+			if(txtNome.getText().matches(""))
+			{
+				throw new CampoVazioException("Nome");
+			}
+			if(txtDataMatricula.getText().matches(""))
+			{
+				throw new CampoVazioException("Data de Matricula");
+			}
+			if(txtRA.getText().matches(""))
+			{
+				throw new CampoVazioException("RA");
+			}
+			if(txtRG.getText().matches(""))
+			{
+				throw new CampoVazioException("RG");
+			}
+			if(txtCPF.getText().matches(""))
+			{
+				throw new CampoVazioException("CPF");
+			}
+			
+			String n=txtNome.getText();
+			if(n.contains("0")||n.contains("1")||n.contains("2")||n.contains("3")||
+			n.contains("4")||n.contains("5")||n.contains("6")||n.contains("7")||
+			n.contains("8")||n.contains("9")){
+				
+			throw new NomeInvalidoException("Nome nao pode conter numeros");
+			}
+			if(n.charAt(0)	<'A'|| n.charAt(0) >'Z')
+			{
+				throw new NomeInvalidoException("Nome deve comecar com letra Maiuscula");
+			}
+			if(!(txtCPF.getText().matches("[0-9]{11}")))
+			{
+				throw new DocumentoInvalidoException("CPF");
+			}
+			if(!(txtRG.getText().matches("[0-9]{9}")))
+			{
+				throw new DocumentoInvalidoException("RG");
+			}
 			ok = true;
+				
 			dispose();
+			
 		});
 		
 		add(lblNome);
