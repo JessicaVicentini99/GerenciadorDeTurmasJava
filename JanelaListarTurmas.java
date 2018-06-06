@@ -50,6 +50,11 @@ public class JanelaListarTurmas extends JFrame{
 			System.out.printf("Turma selecionado: %s\n", jlTurma.getSelectedValue());
 		});
 		
+		btAlunos.addActionListener((e)->{
+			//JanelaEditTurma ep = new JanelaEditTurma(this, jlTurma.getSelectedValue());
+			new JanelaListarAluno(this, jlTurma.getSelectedValue());
+			System.out.printf("Turma selecionado: %s\n", jlTurma.getSelectedValue());
+		});
 		setSize(300,300);
 		setVisible(true);
 	}

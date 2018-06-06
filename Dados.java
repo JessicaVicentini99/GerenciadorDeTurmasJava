@@ -32,5 +32,17 @@ public class Dados{
 	public List<Turma> getListTurma(){
 		return lstTurma;
 	}
+	
+	public void removeAluno(Aluno a){
+		lstAlunos.remove(a);
+	}
+	
+	public void removeProfessor(Professor p){
+		lstProfessor.remove(p);
+	}
+	
+	public void removeTurma(Turma t){
+		lstTurma.remove(t);
+	}
 
 }

@@ -3,7 +3,7 @@ import java.util.LinkedList;
 
 public class Turma{
 	
-		private List<Turma> lstTurma;
+		private List<Aluno> lstAluno;
 		private Professor prof; 
 		private String dataInicio, dataTermino;
 		
@@ -36,16 +36,22 @@ public class Turma{
 		}
 		
 		
+		public void addAluno(Aluno a)
+		{
+				lstAluno.add(a);
+		}
 		
-		
-		
+		public void rmvAluno(Aluno a)
+		{
+			lstAluno.remove(a);
+		}
 		
 		
 		
 	
 		public Turma(String di, String dt, Professor pr)
 		{
-			lstTurma = new LinkedList<>();
+			lstAluno = new LinkedList<>();
 			dataInicio = di;
 			dataTermino = dt;
 			prof = pr;
@@ -56,6 +62,10 @@ public class Turma{
 			return " Data Inicio: "+dataInicio+"\n"+" Data Fim: "+dataTermino+"\n"+" Professor: "+prof+"\n";
 		}
 		
+		
+		public List<Aluno> getAlunos(){
+			return lstAluno;
+		}
 
 		
 		
